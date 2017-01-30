@@ -7,54 +7,30 @@ router.post('/register',function (req,res) {
 	var id =req.body.id;
 	var roll_num=req.body.roll_num;
 	var name=req.body.name;
-	
-	//req.checkBody('id','ID is Required ').notEmpty();	
-/*	var errors =req.validationErrors();
 
-	if (errors) {
-		res.render('index',{errors:errors});
-	}
-	else
-	{	
-*/
-		/*var newStudent = new Student({
-			id:id,
-			roll_num:roll_num,
-			name:name
-		});
-*/	
-		var newStudent=new Student();
+	var newStudent=new Student();
 
-		newStudent.id=id;
-		newStudent.roll_num=roll_num;
-		newStudent.name=name;
+	newStudent.id=id;
+	newStudent.roll_num=roll_num;
+	newStudent.name=name;
 
-		newStudent.save(function(errors,student){
-			if (errors) {
-				res.send('Error saving new student data');
-			}
-			else{
-				console.log(errors);
-			}
-
-		});
-	//	res.redirect('/login')
-/*	}
-*/
-	// body...
+	newStudent.save(newStudent,function(errors,student){
+		if (errors) {
+			res.send('Error saving new student data');
+		}else{
+			console.log(student);
+		}
+	});
+	res.redirect('/login');
 });
 
 
 router.get('/login',function (req,res) {
-	// body...
-
 	res.render('login');
 });
 
 
-router.get('/',function (req,res) {
-	// body...
-
+router.get('/register',function (req,res) {
 	res.render('index');
 });
 

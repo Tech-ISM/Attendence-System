@@ -11,7 +11,7 @@ var StudentSchema=mongoose.Schema({
 	},
 	name:{
 		type:String
-	},
+	}
 	/*image:{
 		type:String,
 		data:Buffer
@@ -21,5 +21,4 @@ var StudentSchema=mongoose.Schema({
 	}*/
 }); 
 
-var Student=module.exports=mongoose.model('student_models',StudentSchema);
-
+module.exports=mongoose.model('student',StudentSchema);
