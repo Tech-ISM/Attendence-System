@@ -3,6 +3,7 @@ var path=require('path');
 var exphbs=require('express-handlebars');
 var bodyParser=require("body-parser");
 var mongoose=require('mongoose');
+var multer = require('multer');
 mongoose.connect('mongodb://localhost/student',function(){
 	console.log('Database connected');
 });
@@ -17,6 +18,7 @@ app.set('view engine','handlebars');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(bodyParser({uploadDir:'/uploads/images/'}));
 app.use(express.static(path.join(__dirname,'public')));	
 
 app.use(index);
