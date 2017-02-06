@@ -51,11 +51,18 @@ router.get('/image.jpeg',function(req,res){
 	res.sendFile('../uploads/images/image.jpg');
 });*/
 
+router.get('/',function(req,res){
+	res.render('dashboard',{student :[
+		{name:"Prashant",adm_no:"15JE001263"},
+		{name: "Ujjwal", adm_no: "15JE001062"}
+	]});
+});
+
 router.get('/login',function (req,res) {
 	res.render('login');
 });
 
 
-router.use('/register',express.static(path.join(__dirname,'../public/index.html')));
+router.use('/register',express.static(path.join(__dirname,'../public/register.html')));
 
 module.exports=router;
